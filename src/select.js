@@ -68,7 +68,7 @@ angular.module('ui.select', [])
           $timeout(function() {
               $scope.$apply($attrs.refresh);
           });
-      }
+      };
     }],
 
     link: function(scope, element, attrs, controllers, transcludeFn) {
@@ -168,7 +168,7 @@ angular.module('ui.select', [])
         }
 
         scope.$watch('$select.search', function() {
-          uiSelectCtrl.refresh();
+          $select.refresh();
           scope.$select.activeIdx = 0;
           ensureHighlightVisible();
         });

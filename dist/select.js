@@ -63,6 +63,12 @@ angular.module('ui.select', [])
       };
 
       ctrl.input = $element.find('input'); // TODO could break if input is at other template
+
+      ctrl.refresh = function() {
+          $timeout(function() {
+              $scope.$apply($attrs.refresh);
+          });
+      }
     }],
 
     link: function(scope, element, attrs, controllers, transcludeFn) {
@@ -162,6 +168,7 @@ angular.module('ui.select', [])
         }
 
         scope.$watch('$select.search', function() {
+          $select.refresh();
           scope.$select.activeIdx = 0;
           ensureHighlightVisible();
         });
