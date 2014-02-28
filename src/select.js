@@ -167,7 +167,7 @@ angular.module('ui.select', [])
           }
         }
 
-        scope.$watch('$select.search', function(newVal) {
+        scope.$watch('$select.search', function() {
           uiSelectCtrl.refresh();
           scope.$select.activeIdx = 0;
           ensureHighlightVisible();
